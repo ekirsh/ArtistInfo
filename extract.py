@@ -49,6 +49,8 @@ def createDriver() -> uc.Chrome:
 def getPerplex(driver: uc.Chrome, artist: str):
     driver.get(f'https://www.perplexity.ai/search?q=songwriter/producer+{artist}')
     time.sleep(1.7)
+    print(driver.page_source)
+    bypass_cloudflare(driver)
     # Find and input the question in the textarea field
     #search_field = WebDriverWait(driver, 10).until(presence_of_element_located((By.TAG_NAME, "textarea")))
     #search_field.send_keys(f'Tell me everything there is to know about artist/songwriter/producer {artist}. Go into the amount of detail that a CEO of a record label would want to know')
