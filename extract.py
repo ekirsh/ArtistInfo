@@ -1,10 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium_stealth import stealth
 import undetected_chromedriver as uc
 import time
 from urllib.parse import urlparse
-import openai
 import sys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
@@ -12,10 +10,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.expected_conditions import presence_of_element_located
 from selenium.webdriver.chrome.options import Options
-from fake_useragent import UserAgent
 
 
-openai.api_key = "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"
 
 def bypass_cloudflare(driver):
     stage = WebDriverWait(driver, 20).until(presence_of_element_located((By.CSS_SELECTOR, '#challenge-stage')))
