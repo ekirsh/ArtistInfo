@@ -29,6 +29,11 @@ def bypass_cloudflare(driver):
     element = driver.find_element(By.CSS_SELECTOR, '#challenge-stage > div > label > input')
     time.sleep(2.6)
     element.click()
+    time.sleep(2.6)
+    try:
+        ready = WebDriverWait(driver, 10).until(presence_of_element_located((By.CSS_SELECTOR, "#__next > main > div > div > div.grow > div > div > div.min-h-\[100vh\].flex.flex-col.pt-\[56px\].pb-\[124px\].md\:pb-0 > div > div > div:nth-child(2) > div > div > div > div.border-borderMain.dark\:border-borderMainDark.divide-borderMain.dark\:divide-borderMainDark.ring-borderMain.dark\:ring-borderMainDark.transition.duration-300.bg-transparent > div > div.border-borderMain.dark\:border-borderMainDark.divide-borderMain.dark\:divide-borderMainDark.ring-borderMain.dark\:ring-borderMainDark.transition.duration-300.bg-background.dark\:bg-backgroundDark > div.default.font-sans.text-base.text-textMain.dark\:text-textMainDark.selection\:bg-super.selection\:text-white.dark\:selection\:bg-opacity-50.selection\:bg-opacity-70 > div > div:nth-child(1) > div > span")))
+    except:
+        bypass_cloudflare(driver)
     driver.switch_to.default_content()
 
 def createDriver() -> uc.Chrome:
